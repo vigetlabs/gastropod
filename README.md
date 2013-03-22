@@ -2,6 +2,8 @@
 
 Simple library for generating slugs
 
+![Code Climate](https://codeclimate.com/github/vigetlabs/gastropod.png)
+
 ![gastropod](http://i.imgur.com/5UhkBfI.jpg)
 
 ## Install
