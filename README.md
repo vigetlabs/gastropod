@@ -45,7 +45,7 @@ Simple library for generating slugs
 
 ## Customisation
 
-If you aren't using ActiveRecord, you will likely want to override the class method 'slug_finder'
+Override the instance method 'slug_finder' for custom scoping
 
 ## Contributing
  

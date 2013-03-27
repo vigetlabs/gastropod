@@ -14,10 +14,6 @@ module Gastropod
     @slug_source_attribute
   end
 
-  def slug_finder
-    instance_variable_defined?("@slug_finder") ? @slug_finder : default_slug_finder
-  end
-
   def default_slug_finder
     lambda {|value| where(:slug => value) }
   end
@@ -29,6 +25,10 @@ module Gastropod
     end
 
     private
+
+    def slug_finder
+      self.class.default_slug_finder
+    end
 
     def slug_source
       send self.class.slug_source_attribute
@@ -46,10 +46,11 @@ module Gastropod
       possible_slug = slug_from_source
 
       index = 2
-      while self.class.slug_finder.call(possible_slug).any?
+      while slug_finder.call(possible_slug).any?
         possible_slug = slug_from_source + "-#{index}"
-        index+= 1
+        index += 1
       end
+
       possible_slug
     end
   end
