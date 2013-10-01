@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gastropod (0.1.0)
+    gastropod (0.2.0)
 
 GEM
   remote: http://rubygems.org/
