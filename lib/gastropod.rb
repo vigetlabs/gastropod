@@ -35,7 +35,8 @@ module Gastropod
     end
 
     def slug_from_source
-      slug_source.to_s.downcase.gsub(/[^a-zA-Z0-9\-_]+/, '-')
+      # remove trailing whitespace, downcase, convert special chars to dash, remove trailing dash
+      slug_source.to_s.strip.downcase.gsub(/[^a-zA-Z0-9\-_]+/, '-').gsub(/\-$/, '')
     end
 
     def generate_slug?
