@@ -17,11 +17,19 @@ describe Gastropod do
     product2.slug.should == "jimmy-boy-2"
   end
 
-  it "does not leave trailing dashes when ending with punctuation or trailing whitespace" do
-    product1 = Product.create!(:name => "knowm sayng?")
-    product2 = Product.create!(:name => "seem sayng ")
+  it "does not start with or end with dashes" do
+    product1 = Product.create!(:name => "?knowm sayng?")
+    product2 = Product.create!(:name => " seem sayng ")
 
     product1.slug.should == "knowm-sayng"
     product2.slug.should == "seem-sayng"
+  end
+
+  it "does not include multiple dashes" do
+    product1 = Product.create!(:name => " hi- there")
+    product2 = Product.create!(:name => "foo-?")
+
+    product1.slug.should == "hi-there"
+    product2.slug.should == "foo"
   end
 end
