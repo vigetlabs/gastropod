@@ -35,7 +35,13 @@ module Gastropod
     end
 
     def slug_from_source
-      slug_source.to_s.downcase.gsub(/[^a-zA-Z0-9\-_]+/, '-')
+      slug_source.to_s.tap do |slug|
+        slug.strip!
+        slug.downcase!
+        slug.gsub!(/[^a-zA-Z0-9\-_]+/, '-') # convert special chars to dash
+        slug.gsub!(/^\-+|\-+$/, '')         # remove leading & trailing dashes
+        slug.squeeze!('-')                  # remove multiple inline dashes
+      end
     end
 
     def generate_slug?
