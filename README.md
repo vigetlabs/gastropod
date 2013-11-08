@@ -1,8 +1,8 @@
 # gastropod
 
-Simple library for generating slugs
+[![Code Climate](https://codeclimate.com/github/vigetlabs/gastropod.png)](https://codeclimate.com/github/vigetlabs/gastropod)
 
-![Code Climate](https://codeclimate.com/github/vigetlabs/gastropod.png)
+Simple library for generating slugs
 
 ![gastropod](http://i.imgur.com/5UhkBfI.jpg)
 
